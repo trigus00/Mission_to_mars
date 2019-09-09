@@ -72,17 +72,18 @@
                 <div class="row">
                     {% for url in mars_hemesphere %}
                     <div class="col-md-6">
-                        <div class="card text" style="margin: 30px;">
-                            <img class="card-img-top" src="{{ image_url.url }}" />
-                            <div class="card-body">
-                                <p class="card-text">{{ title.url }}</p>
-                            </div>
+                        <div class="card-body">
+                            <img src="{{ url.image_url}}" width="50%">
+                            <p style="font: bold">{{ url.title }} </p>
+                            
+                            
                         </div>
                     </div>
                     {% endfor %}
                 </div>
             </div>
       </div>
+          </div>
 
 
 

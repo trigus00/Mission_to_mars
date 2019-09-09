@@ -131,7 +131,7 @@ def mars_hemespheres():
 
         image_items = soup.find_all('div',class_='item')
         for link in image_items:
-            image_name = link.find('h3').get_text
+            image_name = link.find('h3').get_text()
             image_find = link.find('a', class_='itemLink product-item')['href']
             link_to_image = main_url + image_find 
     
@@ -145,7 +145,7 @@ def mars_hemespheres():
     
     
             hemisphere_image_urls.append({"title": image_name , "image_url": image_url})
-            mars['hemesphere']=hemisphere_image_urls
+            mars['hemispheres']=hemisphere_image_urls
         
         return mars
     

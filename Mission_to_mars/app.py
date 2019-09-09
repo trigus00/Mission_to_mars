@@ -17,8 +17,7 @@ mongo = PyMongo(app)
 def index(): 
 
     mars = mongo.db.mars.find_one()
-
-    return render_template("index.html", mars_title =mars['titles'], mars_paragraph=mars['paragraph'],mars_image = mars['Mars_Image'],mars_tweet=mars['twitter'],mars_facts = mars['facts'],mars_hemesphere = mars)
+    return render_template("index.html", mars_title =mars['titles'], mars_paragraph=mars['paragraph'],mars_image = mars['Mars_Image'],mars_tweet=mars['twitter'],mars_facts = mars['facts'],mars_hemesphere = mars['hemispheres'])
 
    
 @app.route("/scrape")
@@ -29,13 +28,13 @@ def scrape():
     mars_photo = mars_scrape.mars_image()
     mars_social = mars_scrape.mars_twitter()
     mars_info = mars_scrape.mars_facts()
-    mars_hemesphere = mars_scrape.mars_hemespheres()
+    mars_hemisphere = mars_scrape.mars_hemespheres()
     
     mars.update({}, mars_article, upsert=True)
     mars.update({}, mars_photo, upsert=True)
     mars.update({}, mars_social, upsert=True)
     mars.update({},mars_info, upsert=True)
-    mars.update({}, mars_hemesphere, upsert=True)
+    mars.update({}, mars_hemisphere, upsert=True)
 
     return redirect("/", code=302)
 
