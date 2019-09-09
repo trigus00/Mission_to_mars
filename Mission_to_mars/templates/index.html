@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Mission to Mars</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+ <!-- Bootstrap CSS -->
+ <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+</head>
+
+<body>
+  <div class="container">
+
+    <div class="jumbotron text-center" style="background-image: url(https://news.cgtn.com/news/3d3d414f7a45544f34457a6333566d54/img/3358de90f79c48beb04f693f990ee0d4/3358de90f79c48beb04f693f990ee0d4.jpg); background-size: 70%; width: 100% ;">
+      <h1 style="color:coral">Mars Data </h1>
+      <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape Latest Mars News </a></p>
+    
+    </div>
+  </div>
+  
+      <!-- Title and Paragraph container and Latest tweet  -->
+      <div class="container" >
+          <div class="row">
+            <div class="col-12">
+              <h1>Lates News:</h1>
+              <h2>{{mars_title}} </h2>
+              <p>{{mars_paragraph}}</p>
+            </div>
+       
+            
+            <!-- Feature Image container   -->
+            <div class="container" >
+            <div class="row">
+          
+            <div class="col-lg-8 col-md-8 col-sm-12">
+            <h1>Feature Image:</h1>
+            <img src="{{mars_image}}" width="50%" alt="Mars Featured Image" >
+            </div>
+           
+           
+            <div class="col-lg-4 col-md-4 col-sm-6">
+              <h1>Weather Tweet:</h1>
+              <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h6 class="card-title">Twitter Weather on Mars t</h6>
+                    <p class="card-text">{{ mars_tweet }}</p>
+                </div>
+              </div>
+          
+              
+            <h2>Mars Facts</h2>
+            <!-- <table> -->
+            {%for facts in mars_facts%}
+              <table>
+                <td>
+                <tr>{{facts.Description}}</tr>:<tr> {{facts.Values}}</tr>
+                </td>
+              </table>
+              {%endfor%}
+            <!-- </table> -->
+           </div>
+          </div>
+        </div>
+
+        <div class="card-deck">
+            <hr>
+            <div class="col-md-12">
+                <div class="row">
+                    {% for url in mars_hemesphere %}
+                    <div class="col-md-6">
+                        <div class="card text" style="margin: 30px;">
+                            <img class="card-img-top" src="{{ image_url.url }}" />
+                            <div class="card-body">
+                                <p class="card-text">{{ title.url }}</p>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+      </div>
+
+
+
+
+    </div>
+</body>
+</html>
