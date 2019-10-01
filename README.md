@@ -11,7 +11,7 @@ In this assignment, you will build a web application that scrapes various websit
 * Data Cleaning 
 * Data Query 
 * Web Scraping 
-* 
+
 
 ### Technologies Used 
 * Pandas
